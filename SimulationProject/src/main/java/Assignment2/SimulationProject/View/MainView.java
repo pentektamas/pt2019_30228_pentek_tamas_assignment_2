@@ -30,7 +30,7 @@ public class MainView extends JFrame {
 
 	}
 
-	public void simsim(int nr) {
+	public void updateSimulation(int nr) {
 		this.remove(sim);
 		sim = new Simulation(nr);
 		sim.revalidate();

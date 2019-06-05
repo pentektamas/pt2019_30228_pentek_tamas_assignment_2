@@ -14,13 +14,13 @@ public class Scheduler {
 	private MainView view;
 	private List<Thread> threads = new ArrayList<Thread>();
 
-	public Scheduler(int nrQ, int nrClients, MainView v,int interval) {
+	public Scheduler(int nrQ, int nrClients, MainView v, int interval) {
 		view = v;
-		simulationInterval=interval;
+		simulationInterval = interval;
 		this.nrQueues = nrQ;
 		cashRegisters = new ArrayList<CashRegister>();
 		for (int i = 0; i < nrQueues; i++) {
-			CashRegister cashReg = new CashRegister(view, nrClients,simulationInterval);
+			CashRegister cashReg = new CashRegister(view, nrClients, simulationInterval);
 			cashReg.setID(i + 1);
 			cashRegisters.add(cashReg);
 			Thread th = new Thread(cashReg);

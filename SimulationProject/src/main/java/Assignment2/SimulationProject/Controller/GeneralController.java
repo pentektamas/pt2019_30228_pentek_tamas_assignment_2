@@ -28,8 +28,8 @@ public class GeneralController implements Runnable {
 
 	public GeneralController() {
 		view.setVisible(true);
-		OKListener OkL = new OKListener();
-		this.view.addOkButtonListener(OkL);
+		StartListener StartL = new StartListener();
+		this.view.addOkButtonListener(StartL);
 	}
 
 	public void generateRandomClients(int nrClients) {
@@ -130,7 +130,7 @@ public class GeneralController implements Runnable {
 			this.t.stop();
 	}
 
-	class OKListener implements ActionListener {
+	class StartListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
 			try {
@@ -145,7 +145,7 @@ public class GeneralController implements Runnable {
 				scheduler = new Scheduler(nrQ, nrClients, view, simulationInterval);
 				scheduler.selectStrategy();
 				generateRandomClients(nrClients);
-				view.simsim(nrQ);
+				view.updateSimulation(nrQ);
 				view.getSim().updateUI();
 				try {
 					Thread.sleep(1000);
